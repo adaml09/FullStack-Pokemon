@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') %>
+
+<% myCollection.forEach(Pokemon =>){ %>
+
+    <li>
+        <h3>Name: <%= Pokemon.name %></h3>
+        <h4>Height: <%= Pokemon.height %></h4>
+        <img src="<%= pokemon.photo %>">
+        <form action="/deletePokemon/<%= pokemon._id %>"
+        method ="POST">
+            <input type="submit" value="Delete Pokemon">
+        </form>
+    </li>
+
+<% } %>
+
+<%- include('partials/footer.ejs') %>
