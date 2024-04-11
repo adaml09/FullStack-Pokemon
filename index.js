@@ -2,7 +2,6 @@ const express = require("express");
 
 const app = express();
 const bodyParser = require("body-parser");
-let 
 
 
 const pokemonRouter = require("./routes/pokemon");

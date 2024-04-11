@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/update" method="POST" class="updateForm"> 
+
+    <label for="pokemonId">Pokemon ID</label>
+    <input type="number" id="pokemonId" name="pokemonId" />
+
+    <label for="pokemonName">Pokemon Name</label>
+    <input type="text" id="pokemonName" name="pokemonName" />
+
+    <label for="pokemonHeight">Pokemon Height</label>
+    <input type="number" id="pokemonHeight" name="pokemonHeight" />
+    
+    <input type="submit" value="Confirm Changes!" />
+</form>
+
+<%- include("partials/footer.ejs") %> 
