@@ -121,6 +121,10 @@ async function loginUser(req, res){
     }
 }
 
+function displayEditPokemon(req, res){
+    res.render("editPokemon.ejs")
+}
+
 module.exports = {
     greetPokemon,
     displayHomePage,
@@ -131,4 +135,5 @@ module.exports = {
     displaySignupPage,
     signUpUser,
     loginUser,
+    displayEditPokemon,
 }
