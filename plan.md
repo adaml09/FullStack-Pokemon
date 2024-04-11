@@ -34,8 +34,14 @@ saved collection.
 6.  As a user I want to be able to create my own pokemons in
 my saved collection.
 7. As a user, I want to be able to sign up for a new account.
+    1. Crete an ejs view (signUpPage.ejs) update the nav bar
+    2. Router - POST /signup
+    3. Controller - signUpUser(req, res) (redirect to the login page)
 8. As a user, I want to be able to login to an existing account.
-
+    1. EJS view - loginPage.ejs
+    2. Router - POST /login
+    3. Controller - loginUser(req, res) (redirect to the hompage)
+    4. Add necassary middleware
 ## Requirements
 1. Use NODE and express.js as a backend framework.
 2. Integrate MongoDB to create the database.

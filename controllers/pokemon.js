@@ -1,6 +1,7 @@
 const { request } = require("express");
-const pokemon = require("../models/pokemon");
 const Pokemon = require("../models/pokemon");
+const User = require("../models/user");
+const bcrypt = require('bcrypt');
 
 function greetPokemon (req, res){
     // logic
@@ -71,6 +72,55 @@ async function deletePokemonById(req, res){
     }
 }
 
+
+
+function displaySignupPage(req, res){
+    res.render("signUp.ejs")
+}
+
+
+async function signUpUser(req, res){
+    const fromData = req.body;
+    try{
+        bcrypt.hash(formData.password, 10, function (err,hash){
+            let newUser = new User(
+                {
+                    firstName: formData.firstName,
+                    lastName: forData.lastName,
+                    userName: forData.userName,
+                    email: forData.email,
+                    password: hash,
+                }
+            );
+            newUser.save().then(() => console.log("User saved !"));
+            res.render("LoginPage.ejs")
+        });
+    } catch (err){
+        console.log(err);
+        res.status(500).send(err);
+    }
+
+}
+
+async function loginUser(req, res){
+    const formData = req.body;
+    try{
+        let user = user.findOne({userName: formData.userName})
+
+        bcrypt.compare(formData.password, user.password,
+        function(err, result){
+            if(result == true){
+                res.locals.user = user;
+                req.session.user = user;
+            }else{
+                res.send(err);
+            }
+        });
+    }catch(err){
+
+    }
+}
+
 module.exports = {
     greetPokemon,
     displayHomePage,
@@ -78,4 +128,7 @@ module.exports = {
     savePokemonToCollection,
     getMyCollection,
     deletePokemonById,
+    displaySignupPage,
+    signUpUser,
+    loginUser,
 }

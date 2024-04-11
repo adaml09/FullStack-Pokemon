@@ -15,6 +15,12 @@ router.get("/savedCollection", pokemonController.getMyCollection);
 
 router.post("/deletePokemon/:id", pokemonController.deletePokemonById);
 
+router.get("/signUp", pokemonController.displaySignupPage);
+
+router.post("/signUp", pokemonController.signUpUser);
+
+router.get("/login", pokemonController.loginUser)
+
 module.exports = router;
 
 
