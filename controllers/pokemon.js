@@ -117,12 +117,29 @@ async function loginUser(req, res){
             }
         });
     }catch(err){
-
+        console.log(err);
+        res.status(500).send(err);
     }
 }
 
 function displayEditPokemon(req, res){
     res.render("editPokemon.ejs")
+}
+
+async function editPokemon(req, res){
+    const formData = req.body;
+
+    try{
+        await Pokemon.updateOne({_id: formData.pokemonId},{
+            pokemonId: formData.pokemonId,
+            name: formData.pokemonName,
+            height: formData.pokemonHeight,
+        })
+    }catch (err){
+        console.log(`ERROR in editing pokemon ${formData.pokemonName}`)
+    }
+    res.redirect("/displayPokemon.ejs");
+    
 }
 
 module.exports = {
@@ -136,4 +153,5 @@ module.exports = {
     signUpUser,
     loginUser,
     displayEditPokemon,
+    editPokemon,
 }

@@ -20,7 +20,8 @@ router.get("/signUp", pokemonController.displaySignupPage);
 router.post("/signUp", pokemonController.signUpUser);
 
 // routers for editing a pokemon (ICE 9)
-router.get("editPokemon", pokemonController.displayEditPokemon)
+router.get("/editPokemon", pokemonController.displayEditPokemon);
+router.get("/editPokemon", pokemonController.editPokemon);
 
 router.get("/login", pokemonController.loginUser)
 
